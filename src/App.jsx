@@ -1,4 +1,4 @@
-import './App.css'
+// 
 // import Counter from './Counter'
 
 // function App() {
@@ -380,14 +380,25 @@ import './App.css'
 import Header from './Header'
 import Products from './Product'
 import {useState} from 'react'
+import { Route ,Routes } from 'react-router-dom'
+import About from './About'
+import Signin from './Signin'
+import Signup from './Signup'
 
 
 function App() {
   const[search, setSearch] = useState('')
   return (
     <>
-      <Header setSearch={setSearch} />
-      <Products search={search} />
+    <Header setSearch={setSearch} />
+      <Routes>
+        <Route path='/' element={<products search={search}/>} />
+        <Route path='/about' element={<About />} />  
+        <Route path='/products' element={<Products search={search}/>} />  
+        <Route path='/register' element={<Signup />} />
+        <Route path='/login' element={<Signin />} />
+
+      </Routes>
 
     </>
 

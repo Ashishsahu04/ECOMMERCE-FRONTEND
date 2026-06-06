@@ -1,5 +1,7 @@
 // import { useState } from "react"
 import './Index.css'
+import { Link } from 'react-router-dom'
+
 
 function Header({setSearch}) {
 
@@ -19,16 +21,16 @@ function Header({setSearch}) {
           style={{borderRadius:"10px",padding:"10px",width:"300px",height:"20px"}}
           type="text" placeholder="Search for products"
         />
+        <nav style={{display:"flex", gap:"20px"}}>
+          <Link to="/">Home</Link>
+          <Link to="/about">About</Link>
+          <Link to="/products">Products</Link>
+          <Link to="/register">Signup</Link>
+          <Link to="/login">Signin</Link>
 
-        <nav style={{display:"flex", gap:"10px",margin:"10px"}}>
-          <a href="" style={{textDecoration:"none", color:"white"}}>HOME</a>
-          <a href="" style={{textDecoration:"none", color:"white"}}>PRODUCTS</a>
-          <a href="" style={{textDecoration:"none", color:"white"}}>ABOUT</a>
-          <a href="" style={{textDecoration:"none", color:"white"}}>SIGNUP</a>
-          <a href="" style={{textDecoration:"none", color:"white"}}>SIGNIN</a>
         </nav>
 
-        <button onclick={togglemode}>  dark/light </button>
+        <button onClick={togglemode}>  dark/light </button>
 
  
 
