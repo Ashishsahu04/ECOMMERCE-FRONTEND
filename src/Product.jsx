@@ -6,7 +6,7 @@ function Products({search}) {
 
   useEffect(() => {
 
-    fetch('https://ecommerce-backend-gjze.onrender.com/products')
+    fetch('https://ecommerce-backend-gjze.onrender.com/products')//backend link added
       .then(response => response.json())
       .then(data => setproducts(data))  // update state → React re-renders
 
