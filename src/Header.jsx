@@ -14,7 +14,7 @@ function Header({setSearch}) {
     <>
       <header style={{display:"flex", justifyContent:"space-around", backgroundColor:"gray", padding:"10px"}}>
 
-        <img src="src/assets/vite.svg" alt="LOGO" />
+        <img src="https://static.vecteezy.com/system/resources/thumbnails/011/401/535/small/online-shopping-trolley-click-and-collect-order-logo-design-template-vector.jpg" id="logo"  alt="LOGO" />
 
         <input
           onChange={(e) => {setSearch(e.target.value)}}
@@ -26,11 +26,11 @@ function Header({setSearch}) {
           <Link to="/about">About</Link>
           <Link to="/products">Products</Link>
           <Link to="/register">Signup</Link>
-          <Link to="/login">Signin</Link>
+          <Link to="/Login">Signin</Link>
 
         </nav>
 
-        <button onClick={togglemode}>  dark/light </button>
+        <button onClick={togglemode} >  dark/light </button>
 
  
 

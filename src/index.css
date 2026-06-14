@@ -2,3 +2,14 @@
     background-color: black;
     color: white;
 }
+Link{
+    text-decoration: none;
+}
+#logo{
+    display:flex;
+     justify-content:start;
+      height:50px; 
+      width:75px;
+       margin:1px 75px ;
+       border-radius: 50%;
+}

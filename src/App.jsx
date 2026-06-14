@@ -382,7 +382,7 @@ import Products from './Product'
 import {useState} from 'react'
 import { Route ,Routes } from 'react-router-dom'
 import About from './About'
-import Signin from './Signin'
+import Login from './Login'
 import Signup from './Signup'
 
 
@@ -396,7 +396,7 @@ function App() {
         <Route path='/about' element={<About />} />  
         <Route path='/products' element={<Products search={search}/>} />  
         <Route path='/register' element={<Signup />} />
-        <Route path='/login' element={<Signin />} />
+        <Route path='/Login' element={<Login />} />
 
       </Routes>
 
