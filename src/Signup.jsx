@@ -11,7 +11,8 @@ import {z} from 'zod'
 
 
 
-function Signup({setisauth}) {
+// function Signup({setisauth}) {
+  function Signup() {
   const [username, setusername] = useState('')
   const [password, setpassword] = useState('')
   const [email, setemail] = useState('')
@@ -20,18 +21,18 @@ function Signup({setisauth}) {
 
  
   function validate(schema,value){
-if(!value) return ""
+  if(!value) return ""
  let result= schema.safeParse(value)
   if(result.success) return "valid"
   return result.error.issues[0].message
-}
+  }
 
   let onsubmit = async (event) => {
     event.preventDefault()
     
     try {
       let userdetails = { username, password, email, role }
-      let resultfetch = await fetch('http://localhost:3000/auth/register', {
+      let resultfetch = await fetch('https://ecommerce-backend-1-pox2.onrender.com/auth/register', {
         method: 'POST',
         headers: {
           "Content-Type": "application/json"
@@ -42,11 +43,12 @@ if(!value) return ""
       let finalresponse = await resultfetch.json()
 
       if (finalresponse.token) {
+        alert(finalresponse.message)
         localStorage.setItem("token", finalresponse.token)
-        setisauth(true)
+        // setisauth(true)
         navigate('/products')
       } else {
-        alert(finalresponse.msg || "something went wrong")
+        alert(finalresponse.error)
       }
     } catch (error) {
       console.log(error)

@@ -7,7 +7,8 @@ import {z} from 'zod'
 let usernameschema=z.string().min(6,"username must be atleast 6 characters")
 let passwordschema=z.string().min(8,"password must be atleast 8 characters")
 
-function Login({setisauth}) {
+// function Login({setisauth}) {
+function Login() {
   const [username, setusername] = useState('')
   const [password, setpassword] = useState('')
   let navigate=useNavigate()
@@ -29,7 +30,7 @@ function validation(schema,value){
   
 
     try {
-      let response = await fetch('http://localhost:3000/auth/login', {
+      let response = await fetch('https://ecommerce-backend-1-pox2.onrender.com/auth/login', {
         method: 'POST',
         headers: {
           "Content-Type": "application/json"
@@ -38,11 +39,12 @@ function validation(schema,value){
       })
       let data = await response.json()
       if (response.ok) {
+        alert(data.message)
         localStorage.setItem("token", data.token)
-        setisauth(true)
+        // setisauth(true)
         navigate('/products')
       } else {
-        alert(data.msg || "Login failed")
+        alert(data.error)
       }
     } catch (error) {
       console.log(error)

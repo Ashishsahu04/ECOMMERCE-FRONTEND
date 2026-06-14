@@ -378,30 +378,37 @@
 
 
 import Header from './Header'
-import Products from './Product'
-import {useState} from 'react'
-import { Route ,Routes } from 'react-router-dom'
 import About from './About'
-import Login from './Login'
 import Signup from './Signup'
+import Login from './Login'
+import { Route, Routes, } from 'react-router-dom'
+import Products from './Product'
+import { useState } from 'react'
+import './App.css'
 
 
 function App() {
-  const[search, setSearch] = useState('')
+  const [search , setSearch] = useState('')
+
   return (
     <>
-    <Header setSearch={setSearch} />
+      <Header setSearch={setSearch} />
       <Routes>
-        <Route path='/' element={<products search={search}/>} />
-        <Route path='/about' element={<About />} />  
-        <Route path='/products' element={<Products search={search}/>} />  
-        <Route path='/register' element={<Signup />} />
-        <Route path='/Login' element={<Login />} />
-
+        <Route path="/about" element={<About />} />
+      
+        <Route
+          path="/products"
+          element={
+          
+              <Products search={search} />
+           
+          }
+        />
+        <Route path='/auth/register' element={<Signup/>}  />
+        <Route path='/auth/Login' element={<Login/>}  />
+    
       </Routes>
-
     </>
-
   )
 }
 

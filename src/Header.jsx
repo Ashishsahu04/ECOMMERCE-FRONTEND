@@ -25,8 +25,8 @@ function Header({setSearch}) {
           <Link to="/">Home</Link>
           <Link to="/about">About</Link>
           <Link to="/products">Products</Link>
-          <Link to="/register">Signup</Link>
-          <Link to="/Login">Signin</Link>
+          <Link to="/auth/register">Signup</Link>
+          <Link to="/auth/Login">Signin</Link>
 
         </nav>
 
