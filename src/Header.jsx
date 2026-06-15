@@ -21,8 +21,8 @@ function Header({setSearch}) {
           style={{borderRadius:"10px",padding:"10px",width:"300px",height:"20px"}}
           type="text" placeholder="Search for products"
         />
-        <nav style={{display:"flex", gap:"20px"}}>
-          <Link to="/">Home</Link>
+        <nav style={{display:"flex", gap:"20px",paddingTop:"15px"}}>
+          <Link to="/products">Home</Link>
           <Link to="/about">About</Link>
           <Link to="/products">Products</Link>
           <Link to="/auth/register">Signup</Link>

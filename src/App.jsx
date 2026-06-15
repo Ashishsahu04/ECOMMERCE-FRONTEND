@@ -381,31 +381,39 @@ import Header from './Header'
 import About from './About'
 import Signup from './Signup'
 import Login from './Login'
-import { Route, Routes, } from 'react-router-dom'
+import { Route, Routes, Navigate} from 'react-router-dom'
 import Products from './Product'
 import { useState } from 'react'
 import './App.css'
 
+function ProtectedRoute({children}){
+ const token=localStorage.getItem('token')
+ if(!token) return <Navigate to='auth/login' replace  />
+ return children
+}
 
 function App() {
   const [search , setSearch] = useState('')
+  const [isauth,setisauth]=useState(!!localStorage.getItem('token'))
 
   return (
     <>
-      <Header setSearch={setSearch} />
+      {isauth&&<Header setSearch={setSearch} />}
       <Routes>
-        <Route path="/about" element={<About />} />
+        <Route path='/' element={<Login setisauth={setisauth} />} />
+        <Route path="/about" element={<ProtectedRoute><About /></ProtectedRoute>} />
       
         <Route
           path="/products"
           element={
-          
+            <ProtectedRoute> 
               <Products search={search} />
+            </ProtectedRoute>
            
           }
         />
-        <Route path='/auth/register' element={<Signup/>}  />
-        <Route path='/auth/Login' element={<Login/>}  />
+        <Route path='/auth/register' element={<Signup setisauth={setisauth}/>}  />
+        <Route path='/auth/Login' element={<Login setisauth={setisauth} />} />
     
       </Routes>
     </>

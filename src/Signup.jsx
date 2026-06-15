@@ -11,8 +11,8 @@ import {z} from 'zod'
 
 
 
-// function Signup({setisauth}) {
-  function Signup() {
+function Signup({setisauth}) {
+
   const [username, setusername] = useState('')
   const [password, setpassword] = useState('')
   const [email, setemail] = useState('')
@@ -45,7 +45,7 @@ import {z} from 'zod'
       if (finalresponse.token) {
         alert(finalresponse.message)
         localStorage.setItem("token", finalresponse.token)
-        // setisauth(true)
+        setisauth(true)
         navigate('/products')
       } else {
         alert(finalresponse.error)

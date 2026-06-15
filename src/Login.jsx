@@ -7,8 +7,8 @@ import {z} from 'zod'
 let usernameschema=z.string().min(6,"username must be atleast 6 characters")
 let passwordschema=z.string().min(8,"password must be atleast 8 characters")
 
-// function Login({setisauth}) {
-function Login() {
+function Login({setisauth}) {
+
   const [username, setusername] = useState('')
   const [password, setpassword] = useState('')
   let navigate=useNavigate()
@@ -41,7 +41,7 @@ function validation(schema,value){
       if (response.ok) {
         alert(data.message)
         localStorage.setItem("token", data.token)
-        // setisauth(true)
+        setisauth(true)
         navigate('/products')
       } else {
         alert(data.error)

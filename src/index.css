@@ -2,9 +2,7 @@
     background-color: black;
     color: white;
 }
-Link{
-    text-decoration: none;
-}
+
 #logo{
     display:flex;
      justify-content:start;
